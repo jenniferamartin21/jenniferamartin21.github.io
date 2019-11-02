@@ -18,6 +18,22 @@
                 border-style:solid;
                 text-align: center;
             }
+            
+            .navbar a:hover, .dropdown:hover .drpdwnbtn{
+                background-color:pink;
+            }
+            .dropdown-options a{
+                text-align: left;
+                display: block;
+                padding: 15px 15px;
+            }
+            .dropdown-options a:hover{
+                background-color:azure;
+            }
+            .dropdown:hover .dropdown-options{
+                display:block;
+            }
+
         </style>
     </head>
     <body>
@@ -28,6 +44,9 @@
                 <button class="button">
                     <i class="drpdwnbtn"></i>
                 </button>
+                <div class="dropdown-options">
+                    <a href="weather.html"> Weather</a>
+                </div>
             </div>
         </div>
         <p>
