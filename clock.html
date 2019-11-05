@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .clock{
+                text-align: center;
+                font-size: 50px;
+                margin-top: 50px;
+            }
+            
+            .title{
+
+            }
+        </style>
+    </head>
+    <body>
+    <p id="title">Time Until the End of the Semester</p>
+    <p id="clock"></p>
+        <script>
+            var lastDay = new Date("Dec 11, 2019 5:30:00").getTime();
+            var inter = setInterval(function(){
+                var current = new Date().getTime();
+                var between = lastDay - current;
+                var day = Math.floor(between / (1000 * 60 * 60 *24));
+                var hour = Math.floor((between % (1000 * 60 * 60 *24)) / (1000 * 60 * 60));
+                var second = Math.floor((between % (1000 * 60)) / 1000);
+                document.getElementById("clock").innerHTML = day + " days " + hour + " hours " + second + " seconds ";
+                if (between <= 0){
+                    clearInterval(inter);
+                    document.getElementById("clock").innerHTML = "Fall 2019 Semester is over."
+                }
+            },1000);
+        </script>
+    </body>
+</html>
