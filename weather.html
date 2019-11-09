@@ -34,14 +34,14 @@
                 $("button").click(function(){
                     $.ajax({
                     type: "POST",
-                    url: "https://goolnk.com/api/v1/shorten",
+                    url: "/api/v1/shorten",
                     data: info,
                     success: function (result_url) {
                         console.log(result_url);
                     },
-               })
-                })
-            })
+               });
+                });
+            });
             /*
             $(document).ready(function(){
                 var info = document.getElementById("url_shorten").submit();
