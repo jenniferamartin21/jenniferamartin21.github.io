@@ -29,10 +29,16 @@
         <p id="link"> Go to Website</p>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
          <script> 
-            var info = document.getElementById("progin");
+            // var info = document.getElementById("progin");
             $(document).ready(function() {
-                $("button").click(function(){
-                    $.ajax({
+                $("input").keyup(function(){
+                    var info = $("input").val();
+                    $.post("/api/v1/shorten", {url: info},function(shortened_url){
+                        $("here").html(shortened_url);
+                    });
+                });
+            });
+                   /* $.ajax({
                     type: "POST",
                     url: "/api/v1/shorten",
                     data: info,
@@ -42,6 +48,7 @@
                });
                 });
             });
+            */
             /*
             $(document).ready(function(){
                 var info = document.getElementById("url_shorten").submit();
@@ -67,6 +74,7 @@
         </script>
         <form id="url_shorten"> <input type="url" id="progin"></form>
         <button> Enter url</button>
+        <p id="here"></p>
 
     </body>
 </html>
