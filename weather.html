@@ -10,22 +10,42 @@
                 font-size: 50px;
 
             }
-        </style>
-        <script>
-            var request = new SMLHttpRequest();
-            request.open('GET','https://goolnk.com/api/v1/shorten', true);
-            request.onload = function () {
-                var data = JSON.parse(this.response);
-                if (request.status >= 200 && request.status < 400){
-                    const short = document.createElement('a');
-                    short.setAttribute('href', result_url);
-                }
+            button{
+                font-family: Comfortaa;
+                text-align: center;
             }
-            request.send();
-        </script>
+        </style>
+        
     </head>
     <body>
         <p>Shorten URLs </p>
+        <p id="link"> Go to Website</p>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script> 
+            
+            $(document).ready(function(){
+                var info = document.getElementById("url_shorten").submit();
+                $("button").click(function(){
+                    $.post("/api/v1/shorten", {url:info}, 
+                    function(result_url){
+                        alert("Shortened url: " + result_url);
+                    });
+                });
+                });
+            // var request = new XMLHttpRequest();
+            // request.open('GET','https://goolnk.com/api/v1/shorten', true);
+            // request.onload = function () {
+            //    var data = JSON.parse(this.response);
+                // if (request.status >= 200 && request.status < 400){
+                    // const short = document.createElement('a');
+                    // short.setAttribute('href', result_url);
+                // }
+            
+            // xmlhttp.open("GET", )
+            // request.send();
+        </script>
+        <form id="url_shorten"> <input type="url"></form>
+        <button> Enter url</button>
 
     </body>
 </html>
