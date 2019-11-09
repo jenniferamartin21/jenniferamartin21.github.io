@@ -18,6 +18,9 @@
                 font-family: Comfortaa;
                 font-size: 30px;
             }
+            input{
+                font-family: Comfortaa;
+            }
         </style>
         
     </head>
@@ -29,8 +32,8 @@
             $(document).ready(function() {
                 $("button").click(function(){
                     $.ajax({
-                    url: '/api/v1/shorten',
-                    type: 'POST',
+                    type: "POST",
+                    url: "/api/v1/shorten",
                     success: function (result_url) {
                         console.log(result_url);
                     },
