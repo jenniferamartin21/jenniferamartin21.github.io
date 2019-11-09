@@ -11,8 +11,21 @@
 
             }
         </style>
+        <script>
+            var request = new SMLHttpRequest();
+            request.open('GET','https://goolnk.com/api/v1/shorten', true);
+            request.onload = function () {
+                var data = JSON.parse(this.response);
+                if (request.status >= 200 && request.status < 400){
+                    const short = document.createElement('a');
+                    short.setAttribute('href', result_url);
+                }
+            }
+            request.send();
+        </script>
     </head>
     <body>
-        <p>Current Weather at Texas A&M University: </p>
+        <p>Shorten URLs </p>
+
     </body>
 </html>
