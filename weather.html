@@ -26,7 +26,20 @@
         <p id="link"> Go to Website</p>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
          <script> 
-            
+            function shorten(){
+               $.ajax({
+                    url: '/api/v1/shorten',
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (result_url) {
+                        shorten(result_url);
+                    },
+               });
+            }
+            $(document).ready(function() {
+                shorten();
+            });
+            /*
             $(document).ready(function(){
                 var info = document.getElementById("url_shorten").submit();
                 $("button").click(function(){
@@ -36,6 +49,7 @@
                     });
                 });
                 });
+            */
             // var request = new XMLHttpRequest();
             // request.open('GET','https://goolnk.com/api/v1/shorten', true);
             // request.onload = function () {
