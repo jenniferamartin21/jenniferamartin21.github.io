@@ -26,7 +26,7 @@
             $(document).ready(function(){
                 var info = document.getElementById("url_shorten").submit();
                 $("button").click(function(){
-                    $.post("/api/v1/shorten", {url:info}, 
+                    $.post("/api/v1/shorten", {url: info}, 
                     function(result_url){
                         alert("Shortened url: " + result_url);
                     });
