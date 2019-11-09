@@ -29,11 +29,13 @@
         <p id="link"> Go to Website</p>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
          <script> 
+            var info = document.getElementById("url_shorten").submit();
             $(document).ready(function() {
                 $("button").click(function(){
                     $.ajax({
                     type: "POST",
                     url: "/api/v1/shorten",
+                    data: info,
                     success: function (result_url) {
                         console.log(result_url);
                     },
